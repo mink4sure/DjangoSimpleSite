@@ -7,17 +7,17 @@
 
 {% block content %}
 
+<main id="main-holder">
+
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 <form action = "{%url 'welkom:AddUser'%}" method = "POST">
     {% csrf_token %}
-    <label for="your_name">Your name: </label>
-    <input id="your_name" type="text" name="your_name">
-
-    <label for="password">password: </label>
-    <input id="password" type="text" name="password">
+    <input id="your_name" type="text" name="your_name" placeholder="Username">
+    <input id="password" type="text" name="password" placeholder="Password">
+    <input id="email" type="text" name="email" placeholder="Email">
 
     <input type="submit" value="OK">
 </form>
-
+</main>
 {% endblock %}
