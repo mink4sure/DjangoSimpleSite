@@ -17,3 +17,13 @@ h1{
   text-align: center;
   background-color: rgb(102, 102, 255);
 }
+
+#main-holder {
+  width: 50%;
+  height: 70%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 7px;
+}

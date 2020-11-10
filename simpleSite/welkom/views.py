@@ -24,12 +24,13 @@ def register(request):
 def AddUser(request):
     name = request.POST['your_name']
     password = request.POST['password']
+    email = request.POST['email']
     check_name_exsists = User.objects.filter(username=name)
     if check_name_exsists:
         return render(request, 'welkom/register.html',
                       {'error_message': "This name is already used"})
     else:
-        user = User(username=name)
+        user = User(username=name, email=email)
         user.set_password(password)
         user.save()
         return HttpResponseRedirect(reverse('welkom:welkom'))
