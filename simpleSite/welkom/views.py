@@ -35,8 +35,6 @@ def AddUser(request):
         return HttpResponseRedirect(reverse('welkom:welkom'))
 
 
-
-
 def login(request):
     template = loader.get_template('welkom/login.html')
     context = {
