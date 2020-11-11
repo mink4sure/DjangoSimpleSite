@@ -1,0 +1,1 @@
+print("home/migrations/__init__.py created")

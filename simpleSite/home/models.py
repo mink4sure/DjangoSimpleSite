@@ -1,0 +1,1 @@
+print('/home/models.py created')
