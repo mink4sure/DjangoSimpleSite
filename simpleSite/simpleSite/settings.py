@@ -119,3 +119,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Session settings
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
