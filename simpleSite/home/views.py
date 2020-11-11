@@ -10,4 +10,10 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     name = request.user.username
 
-    return HttpResponse("Hi %s" %(name))
+    return render(request, 'home/base.html')
+
+
+@login_required
+def logout_func(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('welkom:welkom'))

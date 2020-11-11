@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'welkom/style.css' %}">
+<title>{% block title %}{% endblock %}</title>
+
+</head>
+
+<body>
+<nav>
+      <a href="{% url 'home:logout-func' %}">Log out</a>
+      <a href="{% url 'home:home' %}">{% request.user.username %}</a>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% block content %}{% endblock %}
+</section>
+</body>
+</html>
