@@ -6,9 +6,11 @@
 
 {% block content %}
 
-<form action = "" method = "get">
-    <label for="your_name">Your name: </label>
-    <input id="your_name" type="text" name="your_name">
+<form action = "{%url 'welkom:login' %}" method = "POST">
+    {% csrf_token %}
+    <input id="your_name" type="text" name="your_name" placeholder="Username">
+    <input id="password" type="text" name="password" placeholder="Password">
+
     <input type="submit" value="OK">
 </form>
 

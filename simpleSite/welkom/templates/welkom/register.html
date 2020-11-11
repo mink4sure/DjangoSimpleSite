@@ -11,7 +11,7 @@
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action = "{%url 'welkom:AddUser'%}" method = "POST">
+<form action = "{%url 'welkom:register'%}" method = "POST">
     {% csrf_token %}
     <input id="your_name" type="text" name="your_name" placeholder="Username">
     <input id="password" type="text" name="password" placeholder="Password">
