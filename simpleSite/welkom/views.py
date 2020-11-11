@@ -49,7 +49,7 @@ def login(request):
                 # Correct password, and the user is marked "active"
                 auth.login(request, user)
                 # Redirect to a success page.
-                return HttpResponseRedirect("/account/loggedin/")
+                return HttpResponseRedirect("/home/")
 
             else:
                 # Show an error page
