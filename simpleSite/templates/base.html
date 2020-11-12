@@ -9,8 +9,15 @@
 
 <body>
 <nav>
+    {% if request.user.is_authenticated %}
+      <a href="{% url 'home:logout' %}">Logout</a>
+
+    {% else %}
       <a href="{% url 'welkom:register' %}">Register</a>
       <a href="{% url 'welkom:login' %}">Log In</a>
+
+    {% endif %}
+
 </nav>
 <section class="content">
   <header>
@@ -18,5 +25,10 @@
   </header>
   {% block content %}{% endblock %}
 </section>
+
+<section id="groups">
+{% block groups %}{% endblock %}
+</section>
+
 </body>
 </html>

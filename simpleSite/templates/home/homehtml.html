@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}">
+
+{% block groups %}
+<h2 class="groups">Groups</h2>
+
+<ul>
+{% for group in request.user.groups %}
+
+    <li> {{group}}</li>
+
+    {% endfor %}
+    <li href="{% url 'welkom:register' %}"> Add group</li>
+</ul>
+
+{% endblock %}
