@@ -6,9 +6,14 @@ import django.contrib.auth as auth
 from django.contrib.auth.decorators import login_required
 
 
+from django.contrib.auth.models import User, Group
+
+
 @login_required
 def home(request):
     name = request.user.username
+    user = User.objects.get(username=name)
+
 
     return render(request, 'home/homehtml.html')
 
