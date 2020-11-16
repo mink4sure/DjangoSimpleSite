@@ -5,9 +5,14 @@ from django.urls import reverse
 import django.contrib.auth as auth
 from django.contrib.auth.decorators import login_required
 
-
 from django.contrib.auth.models import User
 from .models import FriendGroup
+from .forms import UploadFileForm
+
+
+# Function for saving files; needs to be based elsewhere in the final version
+def save(f):
+    return f.ch
 
 
 @login_required
@@ -41,5 +46,13 @@ def create_group(request):
     return render(request, 'home/create_group.html')
 
 
-
+def upload_file(request):
+    if request.method == 'POST':
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            save(request.FILES['file'])
+            return HttpResponseRedirect('/success/url/')
+    else:
+        form = UploadFileForm()
+    return render(request, 'upload.html', {'form': form})
 
