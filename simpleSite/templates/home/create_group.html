@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action = "{%url 'welkom:login' %}" method = "POST">
+    {% csrf_token %}
+    <input id="friend_group_name" type="text" name="friend_group_name" placeholder="Group name">
+
+    <input type="submit" value="OK">
+</form>
+
+{% endblock %}

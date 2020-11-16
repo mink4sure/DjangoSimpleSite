@@ -1,17 +1,56 @@
-{% extends 'base.html' %}
+<!doctype html>
+<html>
+<head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<title>{% block title %}{% endblock %}</title>
 
-<link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}">
+</head>
 
-{% block groups %}
-<h2 class="groups">Groups</h2>
+<body>
+<nav>
+    {% if request.user.is_authenticated %}
+      <a href="{% url 'home:logout' %}">Logout</a>
+
+    {% else %}
+      <a href="{% url 'welkom:register' %}">Register</a>
+      <a href="{% url 'welkom:login' %}">Log In</a>
+
+    {% endif %}
+
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% block content %}{% endblock %}
+</section>
+
+<section id="groups">
+
+    <h2 class="groups">Groups</h2>
 
 <ul>
-{% for group in request.user.groups %}
+{% for group in request.user.groups.all %}
 
-    <li> {{group}}</li>
+    <li> {{group.name}}</li>
 
     {% endfor %}
-    <li href="{% url 'welkom:register' %}"> Add group</li>
-</ul>
 
-{% endblock %}
+    </ul>
+
+    <a href="{% url 'home:create_group' %}"> Add group</a>
+
+</section>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

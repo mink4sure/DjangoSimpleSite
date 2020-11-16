@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'home.apps.HomeConfig',
     'welkom.apps.WelkomConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -120,6 +121,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    '/var/www/static/',
+]
 
 # Session settings
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
